@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Container } from "@material-ui/core";
 import "./App.css";
 import Header from "./components/Header";
+import Definitions from "./components/Definitions/Definitions";
 
 function App() {
   // state for word
@@ -42,6 +43,9 @@ function App() {
           word={word}
           setWord={setWord}
         />
+        {meanings && (
+          <Definitions word={word} meanings={meanings} category={category} />
+        )}
       </Container>
     </div>
   );
