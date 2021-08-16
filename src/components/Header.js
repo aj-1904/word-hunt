@@ -8,7 +8,7 @@ import {
 import "./Header.css";
 import categories from "./data/category";
 
-const Header = () => {
+const Header = ({ category, setCategory, word, setWord }) => {
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -18,18 +18,29 @@ const Header = () => {
     },
   });
 
+  const handleChange = (language) => {
+    setCategory(language);
+    setWord("");
+  };
+
   return (
     <div className="header">
-      <span className="title">Word Hunt</span>
+      <span className="title">{word ? word : "Word Hunt"}</span>
       <div className="inputs">
         <ThemeProvider theme={darkTheme}>
-          <TextField id="standard-basic" label="Word" />
           <TextField
-            id="standard-select-currency"
+            className="search-word"
+            id="standard-basic"
+            label="Search a Word.."
+            value={word}
+            onChange={(e) => setWord(e.target.value)}
+          />
+          <TextField
+            className="select-language"
             select
-            label="Select"
-            value
-            helperText="Please select your language"
+            label="Language"
+            value={category}
+            onChange={(e) => handleChange(e.target.value)}
           >
             {categories.map((option) => (
               <MenuItem key={option.label} value={option.label}>
