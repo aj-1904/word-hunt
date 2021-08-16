@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container, withStyles, Switch } from "@material-ui/core";
-import "./App.css";
 import Header from "./components/Header";
 import Definitions from "./components/Definitions/Definitions";
 import { grey } from "@material-ui/core/colors";
