@@ -6,7 +6,7 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import "./Header.css";
-import categories from "./data/category";
+import categories from "../../data/category";
 
 const Header = ({ category, setCategory, word, setWord, LightMode }) => {
   const darkTheme = createTheme({
